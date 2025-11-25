@@ -164,15 +164,17 @@
       margin-left: -50px;
     }
 
-    .home-hero {
-      height: 100vh;
-      width: 100%;
-      background-image: url("shane.jpg");
-      background-size: cover;
-      background-position: center-top;
-      background-repeat: no-repeat;
-      position: relative;
-    }
+   .home-hero {
+  height: 100vh;
+  width: 100%;
+  background-image: url("shane.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
 
     .overlay {
       position: absolute;
@@ -201,12 +203,56 @@
       height: auto;
       border-radius: 50%;
     }
+
+    @media (max-width: 576px) {
+      .home-hero h1 {
+        font-size: 1.8rem !important;
+      }
+
+      .home-hero p {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+
+      .content {
+        margin-right: 0 !important;
+        margin-top: 180px !important;
+        transform: translateY(-30%);
+      }
+
+      #about .project-card {
+        padding: 15px !important;
+      }
+
+      #about p {
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      .profile-img {
+        max-height: 220px !important;
+      }
+
+      .project-img {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .logo-img {
+        margin-left: 0 !important;
+        max-height: 55px !important;
+      }
+    }
+
+    .navbar-dark .navbar-toggler-icon {
+      filter: invert(100%);
+    }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <img src="logo.png" alt="Logo" class="logo-img">
       <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
