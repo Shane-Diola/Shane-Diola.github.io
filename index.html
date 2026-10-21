@@ -1,352 +1,166 @@
+
 <!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>By Shane, Beyond Ordinary</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <style>
-    body {
-      background: linear-gradient(45deg, #000000 0%, #451936 45%, #8c1142 100%);
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-      color: #fff;
-      font-family: "Poppins", system-ui, sans-serif;
-      scroll-behavior: smooth;
-      text-align: justify;
-    }
 
-    nav.navbar {
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(8px);
-    }
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous">
 
-    .navbar-brand {
-      font-weight: 600;
-    }
-
-    .nav-link {
-      color: #fff !important;
-      transition: 0.3s;
-    }
-
-    .nav-link:hover {
-      color: #ffd6ff !important;
-    }
-
-    .profile-wrap {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .avatar {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 5px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 20px 32px rgba(0, 0, 0, 0.4);
-      background: rgba(255, 255, 255, 0.03);
-      flex: 0 0 auto;
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .profile-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-left: 2rem;
-      min-width: 320px;
-      max-width: 480px;
-    }
-
-    .info-header,
-    .info-details {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1.5rem 1.8rem;
-      border-radius: 1rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-    }
-
-    .info-header h2 {
-      font-weight: 600;
-    }
-
-    .info-header p {
-      opacity: 0.9;
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 575px) {
-      .profile-wrap {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .profile-info {
-        margin-left: 0;
-        margin-top: 1.5rem;
-        width: 100%;
-      }
-    }
-
-    section {
-      padding: 5rem 1rem;
-    }
-
-    h2.section-title {
-      text-align: center;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    .skills span {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 0.6rem 1.2rem;
-      border-radius: 20px;
-      margin: 0.4rem;
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      transition: 0.3s;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    .project-card h5 {
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 1rem 0;
-      text-align: center;
-      color: #ddd;
-      font-size: 0.9rem;
-    }
-
-    .navbar {
-      height: 60px;
-    }
-
-    .logo-img {
-      height: 100%;
-      max-height: 75px;
-      margin-bottom: -6px;
-      width: auto;
-      object-fit: contain;
-      margin-left: -50px;
-    }
-
-    .home-hero {
-      height: 100vh;
-      width: 100%;
-      background-image: url("shane.jpg");
-      background-size: cover;
-      background-position: center top;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      position: relative;
-    }
-
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-    .content {
-      position: relative;
-      z-index: 2;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgb(255, 255, 255);
-      margin-top: 250px;
-      margin-right: 500px;
-    }
-
-    .project-img {
-      width: 700px;
-      height: 350px;
-      object-fit: cover;
-    }
-
-    .profile-img {
-      max-width: 250px;
-      height: auto;
-      border-radius: 50%;
-    }
-
-    @media (max-width: 576px) {
-      .home-hero h1 {
-        font-size: 1.8rem !important;
-      }
-
-      .home-hero p {
-        font-size: 0.95rem;
-        padding: 0 15px;
-      }
-
-      .content {
-        margin-right: 0 !important;
-        margin-top: 180px !important;
-        transform: translateY(-30%);
-      }
-
-      #about .project-card {
-        padding: 15px !important;
-      }
-
-      #about p {
-        font-size: 0.95rem;
-        line-height: 1.4;
-      }
-
-      .profile-img {
-        max-height: 220px !important;
-      }
-
-      .project-img {
-        width: 100% !important;
-        height: auto !important;
-      }
-
-      .logo-img {
-        margin-left: 0 !important;
-        max-height: 55px !important;
-      }
-    }
-
-    .navbar-dark .navbar-toggler-icon {
-      filter: invert(100%);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <img src="logo.png" alt="Logo" class="logo-img">
-      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <a class="navbar-logo" href="#home" aria-label="Go to Home">
+        <img src="logo.png" alt="Shane Logo" class="logo-img">
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#description">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#description">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#activities">Activities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <section id="home" class="home-hero text-center">
+  <!-- Home -->
+  <section id="home" class="home-hero">
     <div class="overlay"></div>
+
     <div class="content">
-      <h1 class="fw-bold display-4 fade-in-delayed">DATA ANALYST & WEB DEVELOPER</h1>
-      <p><b>Designing stunning websites and decoding data to tell meaningful stories.</b></p>
-    </div>
-  </section>
+      <span class="hero-label">WELCOME TO MY PORTFOLIO</span>
+      <h1 class="fade-in-delayed">
+        DATA ANALYST <span>&amp;</span> WEB DEVELOPER
+      </h1>
+      <p>
+        <strong>
+          Designing stunning websites and decoding data to tell meaningful stories.
+        </strong>
+      </p>
 
-  <section id="about">
-    <h2 class="section-title mb-4">PERSONAL DETAILS</h2>
-
-    <div class="container">
-      <div class="row justify-content-center g-4 align-items-stretch">
-        <div class="col-md-4 d-flex justify-content-center">
-          <div class="project-card p-4 d-flex align-items-center h-100">
-            <img src="frml.jpg" alt="Formal" class="profile-img img-fluid rounded"
-              style="max-height: 300px; width: auto;">
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <div class="project-card w-100 p-4 d-flex flex-column justify-content-center text-start h-100">
-            <p><strong>Name:</strong> Shane B. Diola</p>
-            <p><strong>School:</strong> Polytechnic University of the Philippines</p>
-            <p><strong>Role:</strong> Emerging Web & UI Designer</p>
-            <p><strong>Focus Areas:</strong> Interactive web interfaces, responsive layouts, and modern visual design
-            </p>
-            <p><strong>Core Strengths:</strong> Problem-solving, creative thinking, and attention to detail</p>
-            <p><strong>Achievements:</strong> Successfully developed and launched multiple responsive web projects,
-              receiving positive feedback for design and functionality</p>
-            <p><strong>Hobbies & Interests:</strong> Digital illustration, Playing E-Games, and Craft</p>
-          </div>
-        </div>
-        <div class="col-md-4 d-flex">
-        </div>
+      <div class="hero-buttons">
+        <a href="#description" class="btn btn-orange">View My Projects <span>↗</span></a>
+        <a href="#contact" class="btn btn-outline-light">Contact Me</a>
       </div>
     </div>
-    </div>
+
+    <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
+      SCROLL TO EXPLORE <span>↓</span>
+    </a>
   </section>
 
-  <section id="skills">
-    <h2 class="section-title text-center mb-4">PROFESSIONAL OVERVIEW</h2>
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">GET TO KNOW ME</span>
+        <h2 class="section-title">Personal <span>Details</span></h2>
+      </div>
 
-    <div class="container mb-5">
+      <div class="row justify-content-center g-4 align-items-stretch">
+        <div class="col-md-5 col-lg-4 d-flex justify-content-center">
+          <div class="about-photo-card w-100">
+            <img
+              src="frml.jpg"
+              alt="Formal portrait of Shane B. Diola"
+              class="profile-img img-fluid">
 
-      <div class="row g-4 mb-4">
-        <div class="col-md-4 d-flex">
-          <div class="project-card w-100">
-            <h5>E-Sports Committee Head</h5>
-            <p>As the Head of the E-Sports Committee in the Computer Society, I lead with heart and enthusiasm, creating
-              a fun and supportive environment for players.</p>
-          </div>
-        </div>
-        <div class="col-md-4 d-flex">
-          <div class="project-card w-100">
-            <h5>Student Athlete</h5>
-            <p>Back in high school, I was an Arnis player who dedicated time and effort to mastering the sport.
-              Competing in various tournaments taught me discipline, focus, and perseverance — qualities I now apply to
-              my creative work.</p>
-          </div>
-        </div>
-        <div class="col-md-4 d-flex">
-          <div class="project-card w-100">
-            <h5>Craft Maker</h5>
-            <p>In my free time, I enjoy a small hobby where I create fuzzy wire crafts and explore thrift fashion. It’s
-              a creative outlet that lets me express my artistic side beyond design.</p>
+            <div class="photo-caption">
+              <span class="photo-dot"></span>
+              <span>DESIGNER • DEVELOPER • DATA ENTHUSIAST</span>
+            </div>
           </div>
         </div>
 
-        <div class="row justify-content-center">
-          <div class="col-md-12 d-flex justify-content-center">
-            <div class="text-center glass-container p-4 rounded w-100">
-              <h2 class="section-title  mb-1 mt-1 py-3 ">SKILLS</h2>
-              <div class="skills d-flex justify-content-center gap-3 flex-wrap">
-                <span class="badge bg-primary px-3 py-2 text-transparent">HTML</span>
-                <span class="badge bg-primary px-3 py-2 text-transparent">CSS</span>
-                <span class="badge bg-primary px-3 py-2 text-transparent">MySQL</span>
-                <span class="badge bg-primary px-3 py-2 text-transparent">Photoshop</span>
+        <div class="col-md-7 col-lg-8 d-flex">
+          <div class="project-card about-details w-100">
+            <span class="card-kicker">ABOUT ME</span>
+            <h3>Hello, I'm Shane!</h3>
+            <p>
+              An aspiring web and UI designer interested in creating
+              meaningful digital experiences through thoughtful design
+              and technology.
+            </p>
+
+            <div class="detail-list">
+              <div class="detail-item">
+                <span class="detail-label">Name</span>
+                <span class="detail-value">Shane B. Diola</span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">School</span>
+                <span class="detail-value">Polytechnic University of the Philippines</span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Role</span>
+                <span class="detail-value">Emerging Web &amp; UI Designer</span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Focus Areas</span>
+                <span class="detail-value">
+                  Interactive web interfaces, responsive layouts, and modern visual design
+                </span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Core Strengths</span>
+                <span class="detail-value">
+                  Problem-solving, creative thinking, and attention to detail
+                </span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Achievements</span>
+                <span class="detail-value">
+                  Developed responsive web projects with a focus on design and functionality
+                </span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Hobbies &amp; Interests</span>
+                <span class="detail-value">
+                  Digital illustration, playing e-games, and craft making
+                </span>
               </div>
             </div>
           </div>
@@ -355,124 +169,255 @@
     </div>
   </section>
 
-  <section id="description">
-    <h2 class="section-title text-center mb-5 mt-3 px-3">
-      MY PROJECTS</h2>
-
-    <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <div class="d-flex justify-content-center gap-4">
-            <div class="text-center">
-              <img src="Diola_After .jpg" class="img-fluid rounded project-img" alt="Out-of-Bounds Project Image">
-            </div>
-            <div class="text-center">
-              <a href="adobe.html">
-                <img src="Diola_Aftercollage.jpg" class="img-fluid rounded project-img"
-                  alt="Out-of-Bounds Project Image">
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="d-flex justify-content-center gap-4">
-            <div class="text-center">
-              <a href="adobe.html">
-                <img src="Diola_After.jpg" class="img-fluid rounded project-img" alt="Out-of-Bounds Project Image">
-              </a>
-            </div>
-            <div class="text-center">
-              <a href="adobe.html">
-                <img src="Diola_After .jpg" class="img-fluid rounded project-img" alt="Out-of-Bounds Project Image">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <div class="carousel-indicators mt-3">
-        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active"
-          aria-current="true"></button>
-        <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1"></button>
-      </div>
-    </div>
-    <div class="d-flex justify-content-center mt-3">
-      <a href="adobe.html" class="btn btn-primary mt-1 py-1">See More</a>
-    </div>
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-  <section id="activities" class="text-center">
-    <h2 class="section-title mb-5">ACTIVITIES</h2>
-
+  <!-- Professional Overview and Skills -->
+  <section id="skills">
     <div class="container">
-      <div class="row justify-content-center g-4">
+      <div class="section-heading">
+        <span class="eyebrow">EXPERIENCE &amp; ABILITIES</span>
+        <h2 class="section-title">Professional <span>Overview</span></h2>
+        <p class="section-description">
+          The experiences and skills that continue to shape my personal and professional growth.
+        </p>
+      </div>
 
-        <div class="col-md-4 d-flex">
-          <a href="https://shane-diola.github.io/product/" class="w-100 text-decoration-none">
-            <div
-              class="project-card p-4 shadow-sm rounded h-100 d-flex flex-column justify-content-between hover-effect">
-              <h5 class="mb-3">Activity 4</h5>
-              <p class="text-justify" style="color: #ffffff;">
-                A product webpage for AirPods, highlighting its sleek design, features, and specifications. The page
-                focuses on responsive layout, modern UI design, and user-friendly navigation to showcase the product
-                effectively.
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="project-card overview-card w-100">
+            <span class="card-number">01</span>
+            <div class="overview-icon">✳</div>
+            <h3>E-Sports Committee Head</h3>
+            <p>
+              As the Head of the E-Sports Committee in the Computer Society,
+              I lead with heart and enthusiasm, creating a fun and supportive
+              environment for players.
+            </p>
+            <span class="card-tag">LEADERSHIP</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="project-card overview-card w-100">
+            <span class="card-number">02</span>
+            <div class="overview-icon">✳</div>
+            <h3>Student Athlete</h3>
+            <p>
+              As an Arnis player in high school, I learned discipline,
+              focus, and perseverance through training and competition.
+              These qualities continue to guide my creative work.
+            </p>
+            <span class="card-tag">DISCIPLINE</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="project-card overview-card w-100">
+            <span class="card-number">03</span>
+            <div class="overview-icon">✳</div>
+            <h3>Craft Maker</h3>
+            <p>
+              I enjoy creating fuzzy-wire crafts and exploring thrift fashion.
+              These hobbies allow me to express my creativity beyond digital design.
+            </p>
+            <span class="card-tag">CREATIVITY</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-panel">
+        <div>
+          <span class="eyebrow">WHAT I WORK WITH</span>
+          <h3>My Skills<span class="orange-period">.</span></h3>
+        </div>
+
+        <div class="skills">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>MySQL</span>
+          <span>Photoshop</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="description">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">SELECTED WORK</span>
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <p class="section-description">
+          A collection of visual design work and creative projects.
+        </p>
+      </div>
+
+      <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <div class="project-gallery">
+              <div class="gallery-card">
+                <img
+                  src="Diola_After .jpg"
+                  class="project-img"
+                  alt="Out-of-Bounds design project">
+                <span class="gallery-caption">OUT-OF-BOUNDS DESIGN</span>
+              </div>
+
+              <a href="adobe.html" class="gallery-card">
+                <img
+                  src="Diola_Aftercollage.jpg"
+                  class="project-img"
+                  alt="Out-of-Bounds design collage">
+                <span class="gallery-caption">DESIGN COLLAGE ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="project-gallery">
+              <a href="adobe.html" class="gallery-card">
+                <img
+                  src="Diola_After.jpg"
+                  class="project-img"
+                  alt="Digital design project">
+                <span class="gallery-caption">DIGITAL DESIGN ↗</span>
+              </a>
+
+              <a href="adobe.html" class="gallery-card">
+                <img
+                  src="Diola_After .jpg"
+                  class="project-img"
+                  alt="Out-of-Bounds design variation">
+                <span class="gallery-caption">CREATIVE WORK ↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#projectsCarousel"
+          data-bs-slide="prev"
+          aria-label="Previous projects">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#projectsCarousel"
+          data-bs-slide="next"
+          aria-label="Next projects">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#projectsCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Project slide 1"></button>
+
+          <button
+            type="button"
+            data-bs-target="#projectsCarousel"
+            data-bs-slide-to="1"
+            aria-label="Project slide 2"></button>
+        </div>
+      </div>
+
+      <div class="section-action">
+        <a href="adobe.html" class="btn btn-orange">
+          See More Projects <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section id="activities">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">PRACTICE &amp; EXPLORATION</span>
+        <h2 class="section-title light-heading">My <span>Activities</span></h2>
+        <p class="section-description light-description">
+          Explore the websites I developed through my learning activities.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4 d-flex">
+          <a href="https://shane-diola.github.io/product/"
+             class="activity-link w-100"
+             target="_blank"
+             rel="noopener noreferrer">
+            <div class="project-card activity-card">
+              <span class="card-number">01 / ACTIVITY 4</span>
+              <h3>AirPods Product Page</h3>
+              <p>
+                A product webpage for AirPods, highlighting its sleek design,
+                features, and specifications through a responsive layout and
+                modern UI design.
               </p>
+              <span class="activity-cta">Explore Project ↗</span>
             </div>
           </a>
         </div>
 
-        <div class="col-md-4 d-flex">
-          <a href="https://shane-diola.github.io/country/" class="w-100 text-decoration-none">
-            <div
-              class="project-card p-4 shadow-sm rounded h-100 d-flex flex-column justify-content-between hover-effect">
-              <h5 class="mb-3">Activity 5</h5>
-              <p class="text-justify" style="color: #ffffff;">
-                A webpage about Canada, highlighting its culture, landmarks, and natural beauty. The page focuses on
-                responsive layout, modern UI design, and engaging visuals to provide users with an informative and
-                interactive experience.
+        <div class="col-md-6 col-lg-4 d-flex">
+          <a href="https://shane-diola.github.io/country/"
+             class="activity-link w-100"
+             target="_blank"
+             rel="noopener noreferrer">
+            <div class="project-card activity-card">
+              <span class="card-number">02 / ACTIVITY 5</span>
+              <h3>Discover Canada</h3>
+              <p>
+                A webpage about Canada's culture, landmarks, and natural beauty,
+                featuring responsive layouts and engaging visuals.
               </p>
+              <span class="activity-cta">Explore Project ↗</span>
             </div>
           </a>
         </div>
 
-        <div class="col-md-4 d-flex">
-          <a href="https://shane-diola.github.io/gallery/" class="w-100 text-decoration-none">
-            <div
-              class="project-card p-4 shadow-sm rounded h-100 d-flex flex-column justify-content-between hover-effect">
-              <h5 class="mb-3">Activity 6</h5>
-              <p class="text-justify" style="color: #ffffff;">
-                A webpage showcasing the top 12 places I have visited, highlighting each destination through vivid
-                images. The page focuses on a responsive layout and features to provide users with an engaging gallery
-                experience.
+        <div class="col-md-6 col-lg-4 d-flex">
+          <a href="https://shane-diola.github.io/gallery/"
+             class="activity-link w-100"
+             target="_blank"
+             rel="noopener noreferrer">
+            <div class="project-card activity-card">
+              <span class="card-number">03 / ACTIVITY 6</span>
+              <h3>Travel Gallery</h3>
+              <p>
+                A gallery showcasing twelve places I have visited through
+                images and a responsive design.
               </p>
-              </p>
+              <span class="activity-cta">Explore Project ↗</span>
             </div>
           </a>
         </div>
 
-        <div class="col-md-4 d-flex">
-          <a href="https://shane-diola.github.io/dbapi/" class="w-100 text-decoration-none">
-            <div
-              class="project-card p-4 shadow-sm rounded h-100 d-flex flex-column justify-content-between hover-effect">
-              <h5 class="mb-3">Activity 7</h5>
-              <p class="text-justify" style="color: #ffffff;">
-                A dynamic webpage showcasing Dragon Ball characters, featuring vivid imagery and essential character
-                details. The page emphasizes a responsive design, delivering an engaging and user-friendly character
-                gallery experience across all devices.
+        <div class="col-md-6 col-lg-4 d-flex">
+          <a href="https://shane-diola.github.io/dbapi/"
+             class="activity-link w-100"
+             target="_blank"
+             rel="noopener noreferrer">
+            <div class="project-card activity-card">
+              <span class="card-number">04 / ACTIVITY 7</span>
+              <h3>Dragon Ball Character Gallery</h3>
+              <p>
+                A dynamic webpage featuring Dragon Ball characters, images,
+                and character details in a user-friendly gallery.
               </p>
-              </p>
+              <span class="activity-cta">Explore Project ↗</span>
             </div>
           </a>
         </div>
@@ -481,29 +426,47 @@
     </div>
   </section>
 
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container contact-container">
+      <span class="eyebrow">LET'S CONNECT</span>
+      <h2 class="section-title">Have a project in <span>mind?</span></h2>
+      <p class="contact-intro">
+        You can reach me through email or connect with me on social platforms.
+      </p>
 
+      <a href="mailto:shanebobadilladiola@gmail.com" class="email-link">
+        shanebobadilladiola@gmail.com ↗
+      </a>
 
+      <div class="social-links">
+        <a href="https://www.facebook.com/your.username"
+           target="_blank"
+           rel="noopener noreferrer">Facebook ↗</a>
 
-  <section id="contact" class="text-center">
-    <h2 class="section-title">CONTACT</h2>
-    <p>You can reach me via email or social platforms:</p>
-    <p><strong>Email:</strong> shanebobadilladiola@gmail.com</p>
-    <div class="d-flex justify-content-center gap-3 mt-3">
-      <a href="https://www.facebook.com/your.username" class="text-white text-decoration-none" target="_blank"
-        rel="noopener noreferrer">Facebook</a>
-      <a href="https://www.instagram.com/your.username/" class="text-white text-decoration-none" target="_blank"
-        rel="noopener noreferrer">Instagram</a>
-      <a href="https://github.com/your-username" class="text-white text-decoration-none" target="_blank"
-        rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.instagram.com/your.username/"
+           target="_blank"
+           rel="noopener noreferrer">Instagram ↗</a>
+
+        <a href="https://github.com/your-username"
+           target="_blank"
+           rel="noopener noreferrer">GitHub ↗</a>
+      </div>
     </div>
   </section>
+
+  <!-- Footer -->
   <footer>
-    © 2025 Shane B. Diola | All Rights Reserved
+    <div class="container footer-content">
+      <a href="#home" class="footer-brand">By Shane, Beyond Ordinary.</a>
+      <p>© 2025 Shane B. Diola | All Rights Reserved</p>
+      <a href="#home" class="back-to-top">Back to top ↑</a>
+    </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
